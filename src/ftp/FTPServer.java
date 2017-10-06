@@ -107,6 +107,8 @@ public class FTPServer {
 			  if (result == JFileChooser.APPROVE_OPTION) {
 				  
 	  	            File selectedFile = jFileChooser.getSelectedFile();
+	  	            clientsMessage.append(" Sending file: " + selectedFile.getName());
+	  	            tellEveryone("Sending file: " + selectedFile.getName());
 	  	            tellEveryone("READY:"+selectedFile.getName());
 	  	            try {
 						sendFileToEveryone(selectedFile.getAbsolutePath());
@@ -114,12 +116,13 @@ public class FTPServer {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-	  	            tellEveryone("DONE"+selectedFile.getName());
+	  	            tellEveryone("DONE !!! File "+selectedFile.getName() + "sent . ");
+	  	            clientsMessage.append("DONE !!! File "+selectedFile.getName() + "sent . ");
 	  	            //System.out.println("Selected file: " + selectedFile.getAbsolutePath());
 	  	            //System.out.println("Selected file: " + selectedFile.getName());
 	  
 	           }
-			
+			 
 		}
 		
 	}
